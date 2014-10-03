@@ -29,7 +29,7 @@ function readList(datpath, filename) {
         rows.push(JSON.stringify(row))
     } )
     
-    //console.log(rows)
+    console.log(rows)
     //var tempfile = path.join(os.tmpdir(), Date.now())
     var child = exec('dat import --json -', {cwd: process.cwd()}, function (error, stdout, stderr) {
         console.log('stdout: ' + stdout);
@@ -38,9 +38,9 @@ function readList(datpath, filename) {
           console.log('exec error: ' + error);
         }
     });
-    // child.on("error",console.log)
-    // child.stdin.write(rows.join('\n'))
-    // child.stdin.end()
+    child.on("error",console.log)
+    child.stdin.write(rows.join('\n'))
+    child.stdin.end()
     
 }
 
