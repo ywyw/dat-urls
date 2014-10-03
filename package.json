@@ -1,0 +1,29 @@
+{
+  "name": "dat-urls",
+  "version": "0.0.0",
+  "description": "Import a list of urls into Dat as remote blobs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ywyw/dat-urls.git"
+  },
+  "keywords": [
+    "dat",
+    "url"
+  ],
+  "author": "ywyw",
+  "license": "BSD",
+  "bugs": {
+    "url": "https://github.com/ywyw/dat-urls/issues"
+  },
+  "homepage": "https://github.com/ywyw/dat-urls",
+  "dependencies": {
+    "minimist": "^1.1.0"
+  },
+  "bin": {
+	  "dat-urls": "bin.js"
+  }
+}
