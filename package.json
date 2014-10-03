@@ -1,6 +1,6 @@
 {
   "name": "dat-urls",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Import a list of urls into Dat as remote blobs",
   "main": "index.js",
   "scripts": {
