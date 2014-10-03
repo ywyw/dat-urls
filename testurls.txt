@@ -1,0 +1,6 @@
+http://a.com/a.txt
+http://a.com/b.txt
+http://a.com/c.txt
+http://a.com/d.txt
+http://b.com/e.txt
+http://b.com/f.txt

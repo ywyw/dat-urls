@@ -4,7 +4,7 @@
   "description": "Import a list of urls into Dat as remote blobs",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "node test.js"
   },
   "repository": {
     "type": "git",
@@ -21,9 +21,15 @@
   },
   "homepage": "https://github.com/ywyw/dat-urls",
   "dependencies": {
+    "debug": "^2.0.0",
     "minimist": "^1.1.0"
   },
   "bin": {
-	  "dat-urls": "bin.js"
+    "dat-urls": "bin.js"
+  },
+  "devDependencies": {
+    "mkdirp": "^0.5.0",
+    "rimraf": "^2.2.8",
+    "tape": "^3.0.0"
   }
 }

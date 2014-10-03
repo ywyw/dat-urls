@@ -4,11 +4,19 @@ var url = require('url')
 var path = require('path')
 var crypto = require('crypto')
 var os = require('os')
+var debug = require('debug')('dat-urls')
 var exec = proc.exec
 
-function readList(datpath, filename) {
+function readList(filename, options) {
+    var datpath = process.cwd()
+    if (!options) {
+        options = {}
+    }
+    if (options.dat) {
+        datpath = options.dat
+    }
     var data = fs.readFileSync(filename).toString()
-    var lines = data.split('\r\n')
+    var lines = data.split(/\r?\n/)
     var rows = []
     lines.map(function mapfunc (line) {
         if (line.length === 0) return
@@ -29,16 +37,16 @@ function readList(datpath, filename) {
         rows.push(JSON.stringify(row))
     } )
     
-    console.log(rows)
-    //var tempfile = path.join(os.tmpdir(), Date.now())
-    var child = exec('dat import --json -', {cwd: process.cwd()}, function (error, stdout, stderr) {
-        console.log('stdout: ' + stdout);
-        console.log('stderr: ' + stderr);
+    debug(rows)
+
+    var child = exec('dat import --json -', {cwd: datpath}, function (error, stdout, stderr) {
+        console.log(stdout);
+        debug('stderr: ' + stderr);
         if (error !== null) {
           console.log('exec error: ' + error);
         }
     });
-    child.on("error",console.log)
+    child.stdin.on("error",console.log)
     child.stdin.write(rows.join('\n'))
     child.stdin.end()
     
